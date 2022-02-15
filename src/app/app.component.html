@@ -1,0 +1,252 @@
+<nav class="navbar navbar-expand-lg bg-gray shadow-sm" [class.bg-dark]="theme">
+  <a class="navbar-brand pl-5" href="#" [class.col]="theme">OWN APPLICATION</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#" [class.col]="theme">Home </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" [class.col]="theme">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" [class.col]="theme">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " [class.col]="theme">Disabled</a>
+      </li>
+      <!-- <div class="custom-control custom-switch ml-5 ">
+        <input name="theme" [(ngModel)]="theme" type="checkbox" class="custom-control-input" id="customSwitch1">
+        <label class="custom-control-label" for="customSwitch1"></label>
+      </div> -->
+    </ul>
+  </div>
+</nav>
+<!-- navbar end -->
+
+<app-contactapp></app-contactapp>
+
+
+
+
+
+
+
+
+<!-- Card Login Validations -->
+<!--
+<div class="container mt-3">
+  <div class="card shadow-sm" style="width: 22rem;">
+    <div class="card-header text-center bg-secondary text-white">
+      <p class="h5">Password Show & Hide</p>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input required type="email" class="form-control" id="exampleInputEmail1" formControlName="email"
+            autocomplete="off">
+          <div *ngIf="getControl.email.touched && getControl.email.invalid" class="text-danger">
+            <div *ngIf="getControl.email.errors?.required">Email is required.</div>
+            <div *ngIf="getControl.email.errors?.email">Email seems invalid.</div>
+            <div *ngIf="getControl.email.errors?.pattern">Email doesn't allow this characters.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+
+          <input required type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+          <div *ngIf="getControl.password.touched && getControl.password.invalid" class="text-danger">
+            <div *ngIf="getControl.password.errors?.required">Password is required.</div>
+            <div *ngIf="getControl.password.errors?.minlength">Must 8 character required</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputconfirmPassword1">Confirm Password</label>
+
+          <input required type="password" class="form-control" id="exampleInputconfirmPassword1" formControlName="cpassword">
+          <div *ngIf="getControl.confirmPassword.touched && getControl.confirmPassword.invalid" class="text-danger">
+            <div *ngIf="getControl.confirmPassword.errors?.required">Password is required.</div>
+            <div *ngIf="getControl.confirmPassword.errors?.minlength">Must 8 character required</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputDate1">Created Date</label>
+
+          <input [min]="minDate" required type="date" class="form-control" id="exampleInputDate1" formControlName="date">
+          <div *ngIf="getControl.date.touched && getControl.date.invalid" class="text-danger">
+            <div *ngIf="getControl.date.errors?.required">Date is required.</div>
+          </div>
+        </div>
+
+        <button type="submit" [disabled]="!profileForm.valid" class="btn btn-dark float-right btn-sm">Submit</button>
+      </form>
+
+    </div>
+  </div>
+
+
+</div> -->
+
+<!-- TEXT AREA VALIDATION -->
+<!-- <div class="container mt-3">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <p class="h4">Text Area Validation</p>
+
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Text Area</label>
+            <textarea name="textarea" [(ngModel)]="textarea" [maxlength]="minlength" class="form-control"
+              id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+          <P class="h6">Text minimum - {{textarea.length}}/200</P>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- SHOPPING CART -->
+<!--
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-lg-9">
+      <table class="table table-bordered table-hover shadow-sm text-center table-striped">
+        <thead class="bg-secondary text-white">
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Image</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of data">
+            <th scope="row">{{item.id}}</th>
+            <td>{{item.name}}</td>
+            <td> <img src="{{item.img}}" class="img-fluid w-25 h-25" alt=""></td>
+
+            <td> <i class="fa fa-minus-square" (click)="qtyDecrease(item.id)"aria-hidden="true" style="cursor: pointer;"></i> {{item.qty}} <i
+                class="fa fa-plus-square" (click)="qtyIncrease(item.id)" aria-hidden="true" style="cursor: pointer;"></i></td>
+
+            <td>{{item.qty * item.price | currency: 'INR'}}</td>
+          </tr>
+          <tr>
+            <td colspan="3"></td>
+            <td >Grand Total</td>
+            <td> {{ getTotalPrice() | currency: 'INR'}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-lg-3">
+      <div class="card shadow-sm">
+        <div class="card-header bg-dark text-white">
+          <p class="h4 text-center">Discount Price</p>
+        </div>
+        <div class="card-body">
+          <h6>
+            Total price : {{ getTotalPrice() | currency: 'INR'}}
+          </h6>
+          <h6>Discount : {{ - 96 | currency: 'INR'}} </h6>
+        </div>
+        <div class="card-footer">
+          <h6>Total Price : {{ getTotalPrice() - 96 | currency: 'INR'}} </h6>
+        </div>
+
+      </div>
+      <div class="card-action mt-2">
+        <button class="btn  w-100 btn-sm bg-dark text-white shadow-sm">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+</div> -->
+
+<!-- THEME CHANGE DARK -->
+<!--
+<section class="pt-3" [class.bg-dark]="theme" >
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card shadow-lg" [class.bg-dark]="theme" [class.text-white]="theme">
+          <div class="card-header text-center">
+            <p class="h5">Tokyo</p>
+
+          </div>
+          <img
+            src="https://images.pexels.com/photos/374870/pexels-photo-374870.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+            class="img-fluid" alt="...">
+          <div class="card-body">
+            <p class="card-text text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos facere dolorem
+              alias eaque ab tenetur voluptates ratione blanditiis illum nulla?</p>
+              <button class="btn btn-dark text-white btn-sm w-100" [class.bg-success]="theme">Know More</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card shadow-lg" [class.bg-dark]="theme" [class.text-white]="theme">
+          <div class="card-header  text-center">
+            <p class="h5">Paris</p>
+          </div>
+          <img
+            src="https://images.pexels.com/photos/1191377/pexels-photo-1191377.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            class="img-fluid" alt="...">
+          <div class="card-body">
+            <p class="card-text text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos facere dolorem
+              alias eaque ab tenetur voluptates ratione blanditiis illum nulla?</p>
+              <button class="btn btn-dark text-white btn-sm w-100" [class.bg-success]="theme">Know More</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card shadow-lg" [class.bg-dark]="theme" [class.text-white]="theme">
+          <div class="card-header text-center">
+            <p class="h5">New York</p>
+          </div>
+          <img
+            src="https://images.pexels.com/photos/2422461/pexels-photo-2422461.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            class="img-fluid" alt="...">
+          <div class="card-body">
+            <p class="card-text text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos facere dolorem
+              alias eaque ab tenetur voluptates ratione blanditiis illum nulla?</p>
+              <button class="btn btn-dark text-white btn-sm w-100" [class.bg-success]="theme">Know More</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card shadow-lg" [class.bg-dark]="theme" [class.text-white]="theme">
+          <div class="card-header  text-center">
+            <p class="h5">Los Angels</p>
+          </div>
+          <img
+            src="https://images.pexels.com/photos/1095826/pexels-photo-1095826.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+            class="img-fluid" alt="...">
+          <div class="card-body">
+            <p class="card-text text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos facere dolorem
+              alias eaque ab tenetur voluptates ratione blanditiis illum nulla?</p>
+              <button class="btn btn-dark text-white btn-sm w-100" [class.bg-success]="theme">Know More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- <footer class="footer mt-auto bg-grey shadow-sm py-3 fixed-bottom" [class.text-white]="theme" [class.bg-dark]="theme">
+  <div class="container">
+    <span class="text-muted">Place sticky footer content here.</span>
+  </div>
+</footer> -->

@@ -1,0 +1,26 @@
+<p class="h5">{{errorMessage}}</p>
+
+
+
+<table class="table table-bordered table-hover table-fixed table-striped shadow-sm" scrollY="true">
+  <thead class="bg-dark text-center text-white  ">
+    <tr>
+      <th>S.NO</th>
+      <th>NAME</th>
+      <th>EMAIL</th>
+      <th>PHONE</th>
+      <th>LOCATION</th>
+    </tr>
+  </thead>
+  <tbody class="text-center" style="cursor: pointer;">
+    <tr *ngFor="let d of contactsData" (click)="infoContact(d)">
+      <td scope="row">{{d.login.uuid.substr(d.login.uuid.length-5)}}</td>
+      <td>{{d.name.first}} {{d.name.last}}</td>
+      <td>{{d.email}}</td>
+      <td>{{d.phone}}</td>
+      <td>{{d.location.country}}</td>
+    </tr>
+
+  </tbody>
+</table>
+

@@ -1,0 +1,25 @@
+<section class="mt-3">
+
+  <!-- <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="h3 text-danger">Contacts App</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, quos aut! Incidunt reiciendis fugiat esse
+          eligendi, vitae ullam nisi cum quibusdam tenetur doloremque repellat earum voluptate libero dolores
+          repellendus numquam. </p>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <app-contactlist (sendData)="sendContactDetails=$event"></app-contactlist>
+      </div>
+      <div class="col-md-3">
+        <app-contact-card [sendContact] ="sendContactDetails"></app-contact-card>
+      </div>
+    </div>
+
+  </div>
+</section>

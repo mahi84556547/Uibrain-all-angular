@@ -1,0 +1,26 @@
+.table-fixed  {
+  height: 85vh;
+  overflow: auto;
+  width: 100%;
+  display: inline-block;
+}
+
+thead{
+  position: sticky;
+  top: 0;
+  z-index: 990;
+}
+
+table::-webkit-scrollbar {
+  width: 5px;               /* width of the entire scrollbar */
+}
+
+table::-webkit-scrollbar-track {
+  background: rgba(105, 105, 104, 0.082);        /* color of the tracking area */
+}
+
+table::-webkit-scrollbar-thumb {
+  background-color: rgba(10, 10, 10, 0.418);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+    /* creates padding around scroll thumb */
+}

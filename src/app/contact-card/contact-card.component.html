@@ -1,0 +1,21 @@
+<div class="card mt-2 shadow-sm" *ngIf="isNotEmpty()">
+  <img [src]="sendContact.picture.large" alt="">
+  <ul class="list-group">
+    <li class="list-group-item">
+      NAME : {{sendContact.name.first}} {{sendContact.name.last}}
+    </li>
+    <li class="list-group-item">
+      EMAIL : {{sendContact.email}}
+    </li>
+    <li class="list-group-item">
+      AGE : {{sendContact.dob.age}}
+    </li>
+    <li class="list-group-item">
+      COUNTRY : {{sendContact.location.country}}
+    </li>
+    <li class="list-group-item">
+      CITY : {{sendContact.location.city}}
+    </li>
+  </ul>
+
+</div>
